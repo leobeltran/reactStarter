@@ -2,7 +2,7 @@ import React from 'react';
 import { mount, shallow } from 'enzyme';
 import {expect} from 'chai';
 
-import Email from '../lib/email';
+import Email from '../src/email';
 
 Feature('Email input','', ()=>{
   Scenario('User wants to input address',()=>{
@@ -10,21 +10,21 @@ Feature('Email input','', ()=>{
     const wrapper = shallow(<Email/>)
 
       Given('there is a text input',()=>{
-      	expect(wrapper.find('input')).to.have.length(1)
+      	expect(wrapper.find('input')).to.exist
       })
 
       And('there is a button to send',()=>{
-      	expect(wrapper.find('button')).to.have.length(1)
+      	expect(wrapper.find('button')).exist
       })
 
       Then('the email should change and should send my email to gravatar',()=>{
         const wrapper = mount (<Email />)
 
         wrapper.setProps({handleEmailChange:''})
-      	expect(wrapper.props().handleEmailChange).to.not.equal(undefined)
+      	expect(wrapper.props().handleEmailChange).to.exist
 
         wrapper.setProps({fetchGravatar:''})
-      	expect(wrapper.props().fetchGravatar).to.not.equal(undefined)
+      	expect(wrapper.props().fetchGravatar).to.exist
       })
   })
 })

@@ -3,9 +3,9 @@ import { mount, shallow } from 'enzyme';
 import {expect} from 'chai';
 import md5 from 'md5';
 
-import Gravatar from '../lib/gravatar';
-import Avatar from '../lib/avatar';
-import EmailForm from '../lib/email';
+import Gravatar from '../src/gravatar';
+import Avatar from '../src/avatar';
+import EmailForm from '../src/email';
 
 
 Feature('Gravatar','', ()=>{

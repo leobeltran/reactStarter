@@ -2,20 +2,22 @@ import React from 'react';
 import { mount, shallow } from 'enzyme';
 import {expect} from 'chai';
 
-import Avatar from '../lib/avatar';
+import Avatar from '../src/avatar';
 
 Feature('Avatar','should show a picture and an email', ()=>{
   Scenario('user visits page for the first time',()=>{
 
-      const wrapper = shallow(<Avatar/>);
+      const wrapper = mount(<Avatar/>);
 
       Given('should have a temporary picture',()=>{
-      	expect(wrapper.find('img')).to.have.length(1)
+      	expect(wrapper.find('img')).to.exist
       })
       And('should have email and foto properties',()=>{
-      	expect(wrapper.props().email).to.be.defined
-      	expect(wrapper.props().src).to.be.defined
 
+        wrapper.setProps({ email:''})
+      	expect(wrapper.props().email).to.exist
+        wrapper.setProps({ src:''})
+      	expect(wrapper.props().src).to.exist
       })
   })
 })

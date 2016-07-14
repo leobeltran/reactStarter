@@ -27,7 +27,8 @@ updateGravatar() {
   render (){
     const {email, src} = this.state
     return(
-      <div>
+      <div className='is-flex' style={styles}>
+      <p className='title'>Gravatar Of:</p>
       <Avatar email={email} src= {src}/>
       <Email
       fetchGravatar={this.updateGravatar}
@@ -37,3 +38,10 @@ updateGravatar() {
     )
   },
 })
+
+const styles ={
+  height : '80vh',
+  justifyContent: 'center',
+  alignItems: 'center',
+  flexDirection: 'column',
+}

@@ -1,45 +1,31 @@
-const path = require('path');
-const webpack = require('webpack');
-const BellOnBundlerErrorPlugin = require('bell-on-bundler-error-plugin');
-
-// env
-const buildDirectory = './dist/';
-
+var webpack = require('webpack');
 module.exports = {
   externals: {
     'cheerio': 'window',
-    'react/lib/ExecutionEnvironment': true,
-    'react/lib/ReactContext': true,
+    'react/src/ExecutionEnvironment': true,
+    'react/src/ReactContext': true,
   },
-  entry: './lib/main.jsx',
-  devServer: {
-    hot: true,
-    inline: true,
-    port: 7700,
-    historyApiFallback: true,
-  },
-  resolve: {
-    extensions: ['', '.js', '.jsx'],
-  },
-  output: {
-    path: path.resolve(buildDirectory),
-    filename: 'app.js',
-    publicPath: 'http://localhost:7700/dist',
-  },
+  entry: [
+    'webpack-dev-server/client?http://localhost:8080',
+    'webpack/hot/only-dev-server',
+    './src/index.js'
+  ],
   module: {
     loaders: [{
-      test: /\.jsx?$/,
-      exclude: /(node_modules|bower_components)/,
-      loader: 'babel',
-      query: {
-        presets: ['react', 'es2015', 'stage-0'],
-      },
-    }],
+      exclude: /node_modules/,
+      loader: 'react-hot!babel'
+    }]
+  },
+  output: {
+    path: './public',
+    publicPath: '/',
+    filename: 'bundle.js'
+  },
+  devServer: {
+    contentBase: './public',
+    hot: true
   },
   plugins: [
-    new BellOnBundlerErrorPlugin(),
-    new webpack.optimize.OccurenceOrderPlugin(true),
-    // new webpack.optimize.DedupePlugin(),
-    // new webpack.optimize.UglifyJsPlugin(),
-  ],
-};
+    new webpack.HotModuleReplacementPlugin(),
+  ]
+}

@@ -4,10 +4,10 @@
   "description": "",
   "main": "webpack.config.js",
   "scripts": {
-    "start": "webpack-dev-server",
+    "start": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js",
     "test": "mocha test/helpers/browser.js test/*.feature.js --ui mocha-gherkin --reporter mocha-gherkin/build/spec",
-    "watch": "mocha -w test/helpers/browser.js test/*.feature.js --ui mocha-gherkin --reporter mocha-gherkin/build/spec",
-    "deploy": "surge -p public -d reactagile.surge.sh",
+    "watch": "npm run test -- -w",
+    "deploy": "surge -p public -d gravatarportal.surge.sh",
     "build": "webpack",
     "yolo": "git add --all && git commit -am \"$(date)\" && npm version minor && git push origin master --tags && npm run build && npm run deploy"
   },
@@ -43,7 +43,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/wordyallen/reactTestingStarter.git"
+    "url": "git+https://github.com/leobeltran/reactStarter.git"
   },
   "keywords": [
     "TDD",
@@ -51,5 +51,5 @@
     "React"
   ],
   "author": "Leonel Beltran",
-  "license": "MIT",
+  "license": "MIT"
 }
