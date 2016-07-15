@@ -65,7 +65,7 @@
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "960da25d1cbcdb4a7143"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "6d5eb3de6402b895ec95"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -28193,7 +28193,7 @@
 	        _react2['default'].createElement(
 	          'p',
 	          { className: 'title' },
-	          'Gravatar For:'
+	          'Gravatar Of:'
 	        ),
 	        _react2['default'].createElement(_avatar2['default'], { email: email, src: src }),
 	        _react2['default'].createElement(_email2['default'], {
@@ -28761,7 +28761,7 @@
 	            'button',
 	            {
 	              onClick: fetchGravatar,
-	              className: 'button is-success'
+	              className: 'button is-primary'
 	            },
 	            'send'
 	          )
