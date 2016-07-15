@@ -4,7 +4,7 @@ export default React.createClass({
   render (){
     return(
       <div className='control'>
-        <p className='control'>{this.props.email}</p>
+        <p className='control is-flex' style={{justifyContent: 'center'}}>{this.props.email}</p>
         <img src={this.props.src}/>
       </div>
     )
